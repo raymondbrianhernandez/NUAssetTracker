@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NU Asset Tracker Login</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+    <div class="login-container">
+        <div class="logo">
+            <img src="{% static 'img/logo.png' %}" alt="National University Logo">
+        </div>
+        <h2>Asset Tracker Login</h2>
+        {% if connected %}
+            <div class="status success">
+                Database is online.
+            </div>
+        {% else %}
+            <div class="status error">
+                Database is offline.
+            </div>
+        {% endif %}
+        <form method="post">
+            {% csrf_token %}
+            <label for="username">Username:</label>
+            <input type="text" name="username" id="username" required>
+            <label for="password">Password:</label>
+            <input type="password" name="password" id="password" required>
+            <button type="submit">Login</button>
+        </form>
+        <div class="additional-options">
+            <a href="forgot_password.html">Forgot Password?</a>
+            <br>
+            <br>
+            <a href="{% url 'create_account' %}">Create an account</a>
+        </div>
+    </div>
+    {% include 'includes/footer.html' %}
+</body>
+
+</html>

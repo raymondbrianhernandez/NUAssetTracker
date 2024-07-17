@@ -1,0 +1,176 @@
+/* Ensure the body takes up the full height of the viewport */
+html, body {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Navbar styles */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff;
+    color: rgb(19, 31, 202);
+    padding: 10px;
+    z-index: 1000;
+    box-sizing: border-box; /* Ensure padding and border are included in the element's total width and height */
+}
+
+/* Adjust body margin for fixed navbar */
+body {
+    margin-top: 60px; /* Adjust for fixed navbar */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Flex container for main content and footer */
+.flex-container {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    justify-content: center;
+    align-items: center; /* Center vertically */
+}
+
+/* Content wrapper styles */
+.content-wrapper {
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center horizontally */
+}
+
+.content-wrapper h1 {
+    margin-bottom: 20px; /* Space between the heading and the table */
+    color: #333; /* Set the text color */
+    font-size: 2em; /* Set the font size */
+}
+
+/* Ensure the footer is always at the bottom of the page */
+footer {
+    background-color: #ffffff;
+    color: rgb(33, 2, 2);
+    text-align: center;
+    padding: 5px 0;
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: auto; /* Push footer to the bottom */
+}
+
+/* Table styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 1em;
+    text-align: left;
+}
+
+table th, table td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+}
+
+table th {
+    background-color: #456bc6;
+}
+
+/* Login container styles */
+.login-container {
+    background-color: white;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px; /* Limit width to 400px */
+    text-align: center;
+}
+
+.login-container h2 {
+    margin-bottom: 30px;
+    font-size: 24px;
+    color: #333;
+}
+
+.login-container form {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.login-container label {
+    text-align: left;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #333;
+}
+
+.login-container input {
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.login-container button {
+    padding: 12px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+.login-container button:hover {
+    background-color: #45a049;
+}
+
+.additional-options {
+    margin-top: 20px;
+}
+
+.additional-options a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.additional-options a:hover {
+    text-decoration: underline;
+}
+
+.status {
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.status.success {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.status.error {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+.logo img {
+    width: 150px;  /* Adjust size as needed */
+    margin-bottom: 20px;
+}

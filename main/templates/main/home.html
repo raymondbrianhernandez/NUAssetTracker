@@ -1,0 +1,56 @@
+<!--
+
+Raymond Hernandez
+raymondhernandez@outlook.com
+June 11, 2024
+C:\Users\Owner\assettracker\main\templates\main\home.html
+
+-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NU Asset Tracker Dashboard</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+    <div class="navbar">
+        {% include 'includes/header.html' %}
+    </div>
+    <div class="flex-container">
+        <div class="content-wrapper">
+            <h1>Refurbished Equipment Tracker</h1>
+            <table>
+                <thead>
+                    <tr>
+                        {% for column in columns %}
+                            <th>{{ column }}</th>
+                        {% endfor %}
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for row in rows %}
+                        <tr>
+                            {% for value in row %}
+                                <td>{{ value }}</td>
+                            {% endfor %}
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div>
+        <footer>
+            {% include 'includes/footer.html' %}
+        </footer>
+    </div>
+</body>
+
+</html>

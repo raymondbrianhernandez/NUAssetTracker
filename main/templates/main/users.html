@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NU Asset Tracker Technicians Manager</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="navbar">
+        {% include 'includes/header.html' %}
+    </div>
+    <div class="flex-container">
+        <div class="content-wrapper">
+            <h1>Technicians</h1>
+            <form method="POST" action="{% url 'update_privilege' %}">
+                {% csrf_token %}
+                <table>
+                    <thead>
+                        <tr>
+                            {% for column in columns %}
+                                <th>{{ column }}</th>
+                            {% endfor %}
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for technician in technicians %}
+                            <tr>
+                                <td>{{ technician.id }}</td>
+                                <td>{{ technician.full_name }}</td>
+                                <td>{{ technician.email }}</td>
+                                <td>
+                                    {% if request.user.is_superuser %}
+                                        <select name="privilege-{{ technician.id }}">
+                                            <option value="admin" {% if technician.privilege == 'admin' %}selected{% endif %}>admin</option>
+                                            <option value="user" {% if technician.privilege == 'user' %}selected{% endif %}>user</option>
+                                        </select>
+                                    {% else %}
+                                        {{ technician.privilege }}
+                                    {% endif %}
+                                </td>
+                                {% if request.user.is_superuser %}
+                                    <td><button type="submit" name="update" value="{{ technician.id }}">Update</button></td>
+                                {% endif %}
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </form>
+        </div>
+    </div>
+    <footer>
+        {% include 'includes/footer.html' %}
+    </footer>
+</body>
+</html>
