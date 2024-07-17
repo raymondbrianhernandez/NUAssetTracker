@@ -74,13 +74,7 @@ WSGI_APPLICATION = 'assettracker.wsgi.application'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'u803325201_NU_Assets',        
-        'USER': 'u803325201_NU_admin',        
-        'PASSWORD': 'NUPassword2024',
-        'HOST': '191.101.13.154',           
-        'PORT': '3306',                      
+    'default': {                    
     }
 }
 
